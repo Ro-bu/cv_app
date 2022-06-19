@@ -4,6 +4,7 @@ import {Education} from "./components/Education";
 import {WorkExperience} from "./components/WorkExperience";
 import {Skills} from "./components/Skills";
 import {nanoid} from "nanoid";
+import { isThisTypeNode } from "typescript";
 
 class App extends Component {
   constructor() {
@@ -18,12 +19,16 @@ class App extends Component {
         image: ""
       },
       education: [{school:"", subject:"", yearStarted:"", yearFinished:"", id: nanoid()}],
-      workExperience: [{company:"", position:"", yearStarted:"", yearFinished:""}],
-      skills: [""]
+      workExperience: [{company:"", position:"", yearStarted:"", yearFinished:"", id: nanoid()}],
+      skills: [{skill:"", id:nanoid()}]
     }
     this.handleChange = this.handleChange.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
+    this.addWorkExperience = this.addWorkExperience.bind(this);
+    this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
+    this.addSkill = this.addSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
   }
   handleChange(event) {
     console.log(event.target)
@@ -38,14 +43,34 @@ class App extends Component {
     newState.education = newState.education.filter(education => education !== item)
     this.setState(newState);
   }
+  addWorkExperience() {
+    let newState = this.state;
+    newState.workExperience = [...newState.workExperience, {company:"", position:"", yearStarted:"", yearFinished:"", id: nanoid()}];
+    this.setState(newState);
+  }
+  deleteWorkExperience(item) {
+    let newState = this.state;
+    newState.workExperience = newState.workExperience.filter(work => work !== item)
+    this.setState(newState);
+  }
+  addSkill() {
+    let newState = this.state;
+    newState.skills = [...newState.skills, {skill:"", id:nanoid()}];
+    this.setState(newState);
+  }
+  deleteSkill(skill) {
+    let newState = this.state;
+    newState.skills = newState.skills.filter(skillObject => skillObject !== skill)
+    this.setState(newState);
+  }
   render(){
     return(
       <div className="main-container">
         <div className="sidebar">
           <GeneralInformation handleChange={this.handleChange} data={this.state} />
           <Education deleteEducation={this.deleteEducation} addEducation={this.addEducation} data={this.state} />
-          <WorkExperience data={this.state} />
-          <Skills data={this.data} />
+          <WorkExperience deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
+          <Skills addSkill={this.addSkill} deleteSkill={this.deleteSkill} data={this.state} />
         </div>
         <div className="cv-preview">
 
