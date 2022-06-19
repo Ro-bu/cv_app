@@ -8,12 +8,12 @@ class Education extends Component {
     render() {
         let educationBlocks = this.props.data.education.map((education) => {
             return(
-                <div className="input-block">
-                    <input className="sidebar-input" type="text" name="school" placeholder="School" id="school"></input>
-                    <input className="sidebar-input" type="text" name="subject" placeholder="Subject" id="subject"></input>
-                    <input className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
-                    <input className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
-                    <button type="button" className="sidebar-button">Delete</button>
+                <div key={education.id} className="input-block">
+                    <input value={education.school} className="sidebar-input" type="text" name="school" placeholder="School" id="school"></input>
+                    <input value={education.subject} className="sidebar-input" type="text" name="subject" placeholder="Subject" id="subject"></input>
+                    <input value={education.yearStarted} className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
+                    <input value={education.yearFinished} className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
+                    <button onClick={() => this.props.deleteEducation(education)} type="button" className="sidebar-button">Delete</button>
                 </div>
             )
         })
