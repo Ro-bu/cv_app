@@ -1,0 +1,132 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-size: 16px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+    min-width: 100vw;
+	min-height: 100vh;
+	font-family: 'Inter', sans-serif;
+}
+.main-container{
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+}
+.sidebar {
+    width: 460px;
+	background-color: #f1faee;
+	box-sizing: border-box;
+	padding: 50px 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.cv-preview {
+    flex-grow: 1;
+    background-color: #457b9d;
+}
+.general-information {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+#description {
+	resize: none;
+	height: 7rem;
+}
+.sidebar-title {
+	font-size: 1.7rem;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.sidebar-input {
+	font-size: 1rem;
+	padding: 0.2rem 0.8rem;
+	border: 1px solid #a5a5a5;
+	border-radius: 5px;
+}
+.input-block {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+.sidebar-button {
+	width: 100%;
+	font-size: 1rem;
+	font-weight: 600;
+	background-color: #aa2839;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 0.2rem 0px;
+	cursor: pointer;
+}
+.sidebar-button:hover{
+	background-color: #c74d5d;
+}
+.add-more-button {
+	margin-top: 0.8rem;
+	background-color: #163c53;
+	color: white;
+}
+.add-more-button:hover{
+	background-color: #3c6b88;
+}
+.skill-trash {
+	width: 31px;
+	height: 31px;
+	cursor: pointer;
+}
+.skill-trash-icon {
+	height: 26px;
+	width: 26px;
+}
+.skills-input{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.skills-input input{
+	width: 320px;
+}
