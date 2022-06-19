@@ -55,12 +55,17 @@ body {
 }
 .sidebar {
     width: 460px;
-	background-color: #f1faee;
+	background-color: #fbfdf5;
 	box-sizing: border-box;
 	padding: 50px 30px;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	overflow-y: scroll;
+	max-height: 100vh;
 }
 .cv-preview {
     flex-grow: 1;
@@ -90,6 +95,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 0.3rem;
+	margin-bottom: 0.8rem;
 }
 .sidebar-button {
 	width: 100%;
@@ -106,7 +112,6 @@ body {
 	background-color: #c74d5d;
 }
 .add-more-button {
-	margin-top: 0.8rem;
 	background-color: #163c53;
 	color: white;
 }

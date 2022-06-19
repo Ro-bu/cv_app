@@ -20,13 +20,24 @@ class App extends Component {
       workExperience: [{company:"", position:"", yearStarted:"", yearFinished:""}],
       skills: [""]
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.addEducation = this.addEducation.bind(this);
+
+  }
+  handleChange(event) {
+    console.log(event.target)
+  }
+  addEducation() {
+    let newState = this.state;
+    newState.education = [...newState.education, {school:"", subject:"", yearStarted:"", yearFinished:""}];
+    this.setState(newState);
   }
   render(){
     return(
       <div className="main-container">
         <div className="sidebar">
-          <GeneralInformation data={this.state} />
-          <Education data={this.state} />
+          <GeneralInformation handleChange={this.handleChange} data={this.state} />
+          <Education addEducation={this.addEducation} data={this.state} />
           <WorkExperience data={this.state} />
           <Skills data={this.data} />
         </div>

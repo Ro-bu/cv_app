@@ -6,9 +6,8 @@ class Education extends Component {
     }
 
     render() {
-        return (
-            <div className="education-container">
-                <h2 className="sidebar-title">Education</h2>
+        let educationBlocks = this.props.data.education.map((education) => {
+            return(
                 <div className="input-block">
                     <input className="sidebar-input" type="text" name="school" placeholder="School" id="school"></input>
                     <input className="sidebar-input" type="text" name="subject" placeholder="Subject" id="subject"></input>
@@ -16,7 +15,14 @@ class Education extends Component {
                     <input className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
                     <button type="button" className="sidebar-button">Delete</button>
                 </div>
-                <button type="button" className="sidebar-button add-more-button">Add More</button>
+            )
+        })
+
+        return (
+            <div className="education-container">
+                <h2 className="sidebar-title">Education</h2>
+                {educationBlocks}
+                <button onClick={this.props.addEducation} type="button" className="sidebar-button add-more-button">Add More</button>
             </div>
         )
     }
