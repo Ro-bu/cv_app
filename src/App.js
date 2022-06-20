@@ -31,7 +31,11 @@ class App extends Component {
     this.deleteSkill = this.deleteSkill.bind(this);
   }
   handleChange(event) {
-    console.log(event.target)
+    const {name, value} = event.target;
+    let newState = this.state;
+    newState.generalInformation = {...newState.generalInformation, [name]:value}
+    this.setState(newState);
+    console.log(this.state)
   }
   addEducation() {
     let newState = this.state;
