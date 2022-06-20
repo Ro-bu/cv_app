@@ -12,8 +12,8 @@ class CvHeader extends Component {
                 <div className="cv-header-contact">
                     <p className="cv-header-contact-text"><span>PHONE: </span>{this.props.data.generalInformation.phone}</p>
                     <p className="cv-header-contact-text"><span>EMAIL: </span>{this.props.data.generalInformation.email}</p>
-
                 </div>
+                <p className="cv-description">{this.props.data.generalInformation.description}</p>
             </div>
         )
     }

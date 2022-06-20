@@ -8,7 +8,7 @@ let exampleData = {
       phone: "+372 56633733",
       email: "vannaka.slayer@gmail.com",
       image: "",
-      description: "A highly accomplished developer who also serves as a high-school tutor."
+      description: "A highly accomplished developer who also serves as a high-school tutor. I created my first website at only 14 years old. I've edited and co-authored around 7 books in the science fiction genre and I have a dog called Susan Gnome."
     },
     education: [
       {
