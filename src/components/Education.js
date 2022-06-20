@@ -9,10 +9,10 @@ class Education extends Component {
         let educationBlocks = this.props.data.education.map((education) => {
             return(
                 <div key={education.id} className="input-block">
-                    <input value={education.school} className="sidebar-input" type="text" name="school" placeholder="School" id="school"></input>
-                    <input value={education.subject} className="sidebar-input" type="text" name="subject" placeholder="Subject" id="subject"></input>
-                    <input value={education.yearStarted} className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
-                    <input value={education.yearFinished} className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
+                    <input value={education.school} onChange={(e) => this.props.handleChange(e, education)} className="sidebar-input" type="text" name="school" placeholder="School" id="school"></input>
+                    <input value={education.subject} onChange={(e) => this.props.handleChange(e, education)} className="sidebar-input" type="text" name="subject" placeholder="Subject" id="subject"></input>
+                    <input value={education.yearStarted} onChange={(e) => this.props.handleChange(e, education)} className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
+                    <input value={education.yearFinished} onChange={(e) => this.props.handleChange(e, education)} className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
                     <button onClick={() => this.props.deleteEducation(education)} type="button" className="sidebar-button">Delete</button>
                 </div>
             )

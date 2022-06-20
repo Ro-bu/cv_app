@@ -18,11 +18,12 @@ class App extends Component {
         email: "",
         image: ""
       },
-      education: [{school:"", subject:"", yearStarted:"", yearFinished:"", id: nanoid()}],
+      education: [{school:"vxcv", subject:"", yearStarted:"", yearFinished:"", id: nanoid()}],
       workExperience: [{company:"", position:"", yearStarted:"", yearFinished:"", id: nanoid()}],
       skills: [{skill:"", id:nanoid()}]
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangePersonalInformation = this.handleChangePersonalInformation.bind(this);
+    this.handleChangeEducation = this.handleChangeEducation.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
     this.addWorkExperience = this.addWorkExperience.bind(this);
@@ -30,12 +31,18 @@ class App extends Component {
     this.addSkill = this.addSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
   }
-  handleChange(event) {
+  handleChangePersonalInformation(event) {
     const {name, value} = event.target;
     let newState = this.state;
     newState.generalInformation = {...newState.generalInformation, [name]:value}
     this.setState(newState);
     console.log(this.state)
+  }
+  handleChangeEducation(event, educationObject) {
+    const {name, value} = event.target;
+    let newState = this.state;
+    newState.education = [...newState.education.filter(education => education !== educationObject), {...educationObject, [name]:value}];
+    this.setState(newState);
   }
   addEducation() {
     let newState = this.state;
@@ -71,8 +78,8 @@ class App extends Component {
     return(
       <div className="main-container">
         <div className="sidebar">
-          <GeneralInformation handleChange={this.handleChange} data={this.state} />
-          <Education deleteEducation={this.deleteEducation} addEducation={this.addEducation} data={this.state} />
+          <GeneralInformation handleChange={this.handleChangePersonalInformation} data={this.state} />
+          <Education handleChange={this.handleChangeEducation} deleteEducation={this.deleteEducation} addEducation={this.addEducation} data={this.state} />
           <WorkExperience deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
           <Skills addSkill={this.addSkill} deleteSkill={this.deleteSkill} data={this.state} />
         </div>
