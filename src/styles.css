@@ -171,7 +171,71 @@ body {
 	font-weight: 300;
 	line-height: 20px;
 }
-
+.cv-education {
+	margin-top: 25px;
+}
+.title-container {
+	font-size: 24px;
+	font-weight: 600;
+	width: 100%;
+	border-bottom: 1px solid #8f8f8f;
+	padding-bottom: 5px;
+}
+.cv-content-block {
+	margin-top: 20px;
+	display: flex;
+	gap: 24px;
+}
+.cv-years {
+	font-size: 16px;
+	font-weight: 600;
+	width: 100px;
+	padding-top: 3px;
+}
+.cv-inner-content-block {
+	flex-grow: 1;
+}
+.inner-block-title {
+	font-size: 20px;
+	font-weight: 700;
+}
+.inner-block-subtitle {
+	margin-top: 8px;
+}
+.cv-work {
+	margin-top: 25px;
+}
+.cv-skills {
+	margin-top: 25px;
+}
+.skills-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding-top: 20px;
+}
+.skill-block{
+	font-size: 16px;
+	font-weight: 500;
+	padding-left: 30px;
+	box-sizing: border-box;
+	width: 222px;
+}
+.skill-text {
+	position: relative;
+}
+.skill-text::before {
+	content: "";
+	display: block;
+	background-color: black;
+	height: 5px;
+	width: 5px;
+	border-radius: 50%;
+	position: absolute;
+	top: 6px;
+	left: -12px;
+}
 @media print {
 	.cv-preview {
 		margin: none;
