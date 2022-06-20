@@ -24,6 +24,8 @@ class App extends Component {
     }
     this.handleChangePersonalInformation = this.handleChangePersonalInformation.bind(this);
     this.handleChangeEducation = this.handleChangeEducation.bind(this);
+    this.handleChangeWorkExperience = this.handleChangeWorkExperience.bind(this);
+    this.handleChangeSkill = this.handleChangeSkill.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.deleteEducation = this.deleteEducation.bind(this);
     this.addWorkExperience = this.addWorkExperience.bind(this);
@@ -43,6 +45,20 @@ class App extends Component {
     let newState = this.state;
     newState.education = [...newState.education.filter(education => education !== educationObject), {...educationObject, [name]:value}];
     this.setState(newState);
+  }
+  handleChangeWorkExperience(event, workObject) {
+    const {name, value} = event.target;
+    let newState = this.state;
+    newState.workExperience = [...newState.workExperience.filter(work => work !== workObject), {...workObject, [name]:value}];
+    this.setState(newState);
+    console.log(newState)
+  }
+  handleChangeSkill(event, skillObject) {
+    const value = event.target.value;
+    let newState = this.state;
+    newState.skills = [...newState.skills.filter( skill => skill !== skillObject), {...skillObject, skill: value}]
+    this.setState(newState);
+    console.log(newState);
   }
   addEducation() {
     let newState = this.state;
@@ -80,8 +96,8 @@ class App extends Component {
         <div className="sidebar">
           <GeneralInformation handleChange={this.handleChangePersonalInformation} data={this.state} />
           <Education handleChange={this.handleChangeEducation} deleteEducation={this.deleteEducation} addEducation={this.addEducation} data={this.state} />
-          <WorkExperience deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
-          <Skills addSkill={this.addSkill} deleteSkill={this.deleteSkill} data={this.state} />
+          <WorkExperience handleChange={this.handleChangeWorkExperience} deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
+          <Skills handleChange={this.handleChangeSkill} addSkill={this.addSkill} deleteSkill={this.deleteSkill} data={this.state} />
         </div>
         <div className="cv-preview">
 

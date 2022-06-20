@@ -8,10 +8,10 @@ class WorkExperience extends Component {
         let workExperienceBlocks = this.props.data.workExperience.map((work) => {
             return (
                 <div key={work.id} className="input-block">
-                    <input className="sidebar-input" type="text" name="company" placeholder="Company" id="company"></input>
-                    <input className="sidebar-input" type="text" name="position" placeholder="Position" id="position"></input>
-                    <input className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
-                    <input className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
+                    <input value={work.company} onChange={(e) => this.props.handleChange(e, work)} className="sidebar-input" type="text" name="company" placeholder="Company" id="company"></input>
+                    <input value={work.position} onChange={(e) => this.props.handleChange(e, work)} className="sidebar-input" type="text" name="position" placeholder="Position" id="position"></input>
+                    <input value={work.yearStarted} onChange={(e) => this.props.handleChange(e, work)} className="sidebar-input" type="text" name="yearStarted" placeholder="Year Started" id="yearStarted"></input>
+                    <input value={work.yearFinished} onChange={(e) => this.props.handleChange(e, work)} className="sidebar-input" type="text" name="yearFinished" placeholder="Year Finished" id="yearFinished"></input>
                     <button onClick={() => this.props.deleteWorkExperience(work)}type="button" className="sidebar-button">Delete</button>
                 </div>
             )
