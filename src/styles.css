@@ -55,7 +55,7 @@ body {
 }
 .sidebar {
     width: 460px;
-	background-color: #fbfdf5;
+	background-color: #fdfff7;
 	box-sizing: border-box;
 	padding: 50px 30px;
 	display: flex;
@@ -68,9 +68,12 @@ body {
 	max-height: 100vh;
 	min-height: 100vh;
 }
-.cv-preview {
+.cv-container {
     flex-grow: 1;
-    background-color: #457b9d;
+	background-color: #e4e4e4;
+	padding-left: 460px;
+	display: flex;
+	align-items: center;
 }
 .general-information {
 	display: flex;
@@ -136,4 +139,10 @@ body {
 }
 .skills-input input{
 	width: 320px;
+}
+.cv-preview {
+	margin: 40px auto;
+	background-color: white;
+	width: 21cm;
+	min-height: 29.7cm;
 }

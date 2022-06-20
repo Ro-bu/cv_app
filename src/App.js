@@ -4,24 +4,14 @@ import {Education} from "./components/Education";
 import {WorkExperience} from "./components/WorkExperience";
 import {Skills} from "./components/Skills";
 import {nanoid} from "nanoid";
-import { isThisTypeNode } from "typescript";
+import {exampleData, resetData} from "./data";
+import {CvPreview} from "./components/CvPreview";
 
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      generalInformation: {
-        firstName: "se",
-        lastName: "",
-        occupation:"",
-        phone: "",
-        email: "",
-        image: ""
-      },
-      education: [{school:"vxcv", subject:"", yearStarted:"", yearFinished:"", id: nanoid()}],
-      workExperience: [{company:"", position:"", yearStarted:"", yearFinished:"", id: nanoid()}],
-      skills: [{skill:"", id:nanoid()}]
-    }
+    this.state = exampleData;
+
     this.handleChangePersonalInformation = this.handleChangePersonalInformation.bind(this);
     this.handleChangeEducation = this.handleChangeEducation.bind(this);
     this.handleChangeWorkExperience = this.handleChangeWorkExperience.bind(this);
@@ -51,7 +41,6 @@ class App extends Component {
     let newState = this.state;
     newState.workExperience = [...newState.workExperience.filter(work => work !== workObject), {...workObject, [name]:value}];
     this.setState(newState);
-    console.log(newState)
   }
   handleChangeSkill(event, skillObject) {
     const value = event.target.value;
@@ -90,6 +79,7 @@ class App extends Component {
     newState.skills = newState.skills.filter(skillObject => skillObject !== skill)
     this.setState(newState);
   }
+  
   render(){
     return(
       <div className="main-container">
@@ -99,8 +89,8 @@ class App extends Component {
           <WorkExperience handleChange={this.handleChangeWorkExperience} deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
           <Skills handleChange={this.handleChangeSkill} addSkill={this.addSkill} deleteSkill={this.deleteSkill} data={this.state} />
         </div>
-        <div className="cv-preview">
-
+        <div className="cv-container">
+          <CvPreview data={this.state} />
         </div>
       </div>
     )

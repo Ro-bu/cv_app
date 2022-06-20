@@ -9,7 +9,7 @@ class Skills extends Component {
         let skillBlocks = this.props.data.skills.map((skill) => {
             return(
                 <div key={skill.id} className="skills-input">
-                    <input onChange={(e) => this.props.handleChange(e, skill)} className="sidebar-input" type="text" name="skill" placeholder="Skill" id="skill"></input>
+                    <input value={skill.skill} onChange={(e) => this.props.handleChange(e, skill)} className="sidebar-input" type="text" name="skill" placeholder="Skill" id="skill"></input>
                     <div onClick={() => this.props.deleteSkill(skill)}className="skill-trash">
                         <img className="skill-trash-icon" src={trashIcon} alt="delete skill"></img>
                     </div>
