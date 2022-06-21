@@ -57,7 +57,7 @@ body {
     width: 460px;
 	background-color: #fdfff7;
 	box-sizing: border-box;
-	padding: 50px 30px;
+	padding: 25px 30px 50px 30px;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
@@ -136,6 +136,7 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	margin-bottom: 0.8rem;
+	width: 100%;
 }
 .skills-input input{
 	width: 320px;
@@ -236,6 +237,35 @@ body {
 	top: 6px;
 	left: -12px;
 }
+.sidebar-top-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+.sidebar-top-buttons button {
+	width: 100%;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: 600;
+	background-color: #3c6b88;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 0px;
+	cursor:pointer;
+}
+.sidebar-top-buttons button:hover {
+	background-color: #6592ad;
+}
+.reset-button {
+	background-color: #c74d5d !important;
+}
+.print-button {
+	background-color: #163c53 !important;
+}
+
+
+
 @media print {
 	.cv-preview {
 		margin: none;
@@ -251,10 +281,6 @@ body {
 		min-height: 25cm;
 		width:21cm;
 		size: auto;
-	}
-	body {
-		display: flex;
-		flex-direction: column;
-		align-content: flex-start;
+		background-color: white;
 	}
 }

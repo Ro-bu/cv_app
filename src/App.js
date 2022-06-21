@@ -22,6 +22,9 @@ class App extends Component {
     this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
+    this.loadSampleData = this.loadSampleData.bind(this);
+    this.resetData = this.resetData.bind(this);
+    this.print = this.print.bind(this);
   }
   handleChangePersonalInformation(event) {
     const {name, value} = event.target;
@@ -79,11 +82,24 @@ class App extends Component {
     newState.skills = newState.skills.filter(skillObject => skillObject !== skill)
     this.setState(newState);
   }
-  
+  loadSampleData(){
+    this.setState(exampleData)
+  }
+  resetData(){
+    this.setState(resetData)
+  }
+  print(){
+    window.print();
+  }
   render(){
     return(
       <div className="main-container">
         <div className="sidebar">
+          <div className="sidebar-top-buttons">
+            <button onClick={this.loadSampleData} type="button">Load Sample Data</button>
+            <button onClick={this.resetData} className="reset-button" type="button">Reset</button>
+            <button onClick={this.print} className="print-button" type="button">Print</button>
+          </div>
           <GeneralInformation handleChange={this.handleChangePersonalInformation} data={this.state} />
           <Education handleChange={this.handleChangeEducation} deleteEducation={this.deleteEducation} addEducation={this.addEducation} data={this.state} />
           <WorkExperience handleChange={this.handleChangeWorkExperience} deleteWorkExperience={this.deleteWorkExperience} addWorkExperience={this.addWorkExperience} data={this.state} />
