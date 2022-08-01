@@ -8,7 +8,7 @@ Project from [The Odin Projects](https://theodinproject.com/) curriculum to crea
 
 ```
 git clone https://github.com/Ro-bu/cv_app.git
-cd shopping-cart
+cd cv_app
 npm install
 npm start
 ```
